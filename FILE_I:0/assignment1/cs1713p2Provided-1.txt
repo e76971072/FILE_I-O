@@ -1,0 +1,37 @@
+/******************** printTeams *****************************
+   void printTeams(char szHeading[], Team teamM[], int iTeamCnt)
+Purpose:
+    Prints team information. 
+Parameters:
+    i char szHeading[]  string describing why the teams are printed
+                        (e.g., "Original Team Information")
+    i Team teamM[]      array of teams
+    i int iTeamCnt      number of teams
+Notes:
+    Prints two lines of text per team.
+**************************************************************************/
+void printTeams(char szHeading[], Team teamM[], int iTeamCnt)
+{
+    int i;          // local counter
+    // Print the heading
+    printf("%s\n", szHeading);
+    printf("  %-6s %-12s %4s %4s  %-8s  %-8s\n"
+        , "Id", "Team Name", "Wins", "Loss", "Fee Amt", "Paid Amt");
+    printf("\t\t  %-20s %-13s %s\n"
+        , "Contact Name", "Phone", "Email");
+    // iterate through the teamM array
+    for (i = 0; i < iTeamCnt; i++)
+    {
+        printf("  %-6s %-12s %4d %4d  %8.2lf  %8.2lf\n"
+            , teamM[i].szTeamId
+            , teamM[i].szTeamName
+            , teamM[i].iWins
+            , teamM[i].iLosses
+            , teamM[i].dFeeAmount
+            , teamM[i].dPaidAmount);
+        printf("\t\t  %-20s %-13s %s\n"
+            , teamM[i].szContactname
+            , teamM[i].szPhone
+            , teamM[i].szEmailAddr);
+    }
+}
